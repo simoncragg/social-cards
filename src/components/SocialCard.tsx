@@ -7,7 +7,7 @@ interface SocialCardProps {
 
 const SocialCard: React.FC<SocialCardProps> = ({ name }) => {
   return (
-      <div>
+      <div className="border border-white p-4 rounded-xl">
         <h1 className="text-3xl font-bold">{ name }</h1>
       </div>
   );
