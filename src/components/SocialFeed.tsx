@@ -10,6 +10,7 @@ const SocialFeed: React.FC = () => {
       username={card.name}
       title={card.title}
       message={card.message}
+      userId={card.userId}
     />
   ));
 };
