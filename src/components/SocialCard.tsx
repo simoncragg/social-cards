@@ -6,7 +6,6 @@ interface SocialCardProps {
   message: string;
   userId: number;
 }
-//Add a div or overarching container? to hold image/name?
 
 const SocialCard: React.FC<SocialCardProps> = ({
   username,
