@@ -1,24 +1,9 @@
 import React from "react";
 import SocialCard from "./SocialCard";
+import getCards from "../repositories/SocialCardRepository";
 
 const SocialFeed: React.FC = () => {
-  const cards = [
-    {
-      name: "Test",
-      title: "Test Title",
-      message: "Test Message",
-    },
-    {
-      name: "Another Test",
-      title: "You guessed it, another test title",
-      message: "woah something different!",
-    },
-    {
-       name: "TheNovice@FrontEnd",
-       title: "Despite it not being my usual tech stack, this isn't too bad",
-       message: "10/10 would recommend pairing with Simon.",
-    }
-  ];
+  const cards = getCards();
 
   return cards.map((card) => (
     <SocialCard
