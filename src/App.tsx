@@ -1,8 +1,8 @@
 import './App.css';
-import SocialCard from './components/SocialCard';
+import SocialFeed from './components/SocialFeed';
 
 const App = () => {
-  return <SocialCard username="Test Name" title="Test title" message="Test message" />
+  return <SocialFeed />
 };
 
 export default App;

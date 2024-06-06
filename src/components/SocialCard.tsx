@@ -1,11 +1,9 @@
 import React from 'react';
 
 interface SocialCardProps {
-    //TODO add propeties and types
     username: string;
     title?: string;
     message: string;
-
 }
 
 const SocialCard: React.FC<SocialCardProps> = ({ username, title, message }) => {
