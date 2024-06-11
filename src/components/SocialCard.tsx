@@ -14,7 +14,7 @@ const SocialCard: React.FC<SocialCardProps> = ({
   userId,
 }) => {
   return (
-    <div className="flex flex-col border border-white p-4 rounded-xl mb-8 items-start">
+    <div className="flex flex-col border border-white p-4 rounded-xl mb-8 items-start bg-white/10">
       <div className="flex items-center mb-2">
         <img
           className="rounded-full w-6 h-6"
