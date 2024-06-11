@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
+    <div className="min-h-screen bg-tropical-ocean text-white">
 
       <header>
         <h1 className="text-2xl text-sky-900">
