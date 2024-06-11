@@ -1,13 +1,12 @@
 import { Outlet } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const Layout = () => {
   return (
     <div className="min-h-screen bg-tropical-ocean text-white">
 
       <header>
-        <h1 className="text-2xl text-sky-900">
-           Echo Chamber 
-        </h1>
+        < Navbar />
       </header>
 
       <div className="p-4">
