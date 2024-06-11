@@ -9,9 +9,6 @@ const SocialFeed: React.FC = () => {
   const cards = getCards();
   return (
     <>
-      <button type="button" onClick={() => navigate("/new-echo")}>
-        <FiPlusCircle className="w-8 h-8 text-cyan-500" />
-      </button>{" "}
       {cards.map((card) => (
         <SocialCard
           username={card.username}
@@ -20,6 +17,9 @@ const SocialFeed: React.FC = () => {
           userId={card.userId}
         />
       ))}
+      <button type="button" onClick={() => navigate("/new-echo")}>
+        <FiPlusCircle className="w-8 h-8 text-cyan-500" />
+      </button>{" "}
     </>
   );
 };
