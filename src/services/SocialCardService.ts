@@ -1,9 +1,22 @@
-interface Card {
+export interface Card {
     userId: number;
     username: string;
     title?: string;
     message: string;
   }
+
+const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
+
+async function getCardsAsync() {
+    await sleep(1000);
+    return cards;
+}
+
+async function addCardAsync(card: Card) {
+    cards.push(card);
+}
+
+export { getCardsAsync, addCardAsync };
 
 const cards: Card[] = [
     {
@@ -25,13 +38,3 @@ const cards: Card[] = [
         userId: 24,
     }
 ];
-
-function getCards() {
-    return cards;
-}
-
-function addCards(card: Card) {
-    cards.push(card);
-}
-
-export { getCards, addCards };
