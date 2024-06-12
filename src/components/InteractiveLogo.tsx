@@ -18,7 +18,7 @@ const InteractiveLogo: React.FC = () => {
 
   const handleDragEnd = ( _ : TouchEvent , info: PanInfo) => {
     if (info.point.y > 100) {
-      console.log("Refreshing...");
+      document.dispatchEvent(new Event("REFRESH"));
     }
 
     animate(y, 0, { type: "spring", stiffness: 300 });

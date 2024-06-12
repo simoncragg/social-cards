@@ -9,14 +9,16 @@ import { HiPlus } from "react-icons/hi";
 const SocialFeed: React.FC = () => {
   const navigate = useNavigate();
   const [cards, setCards] = useState<Card[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const initCards = async () => {
+      setIsLoading(true);
       setCards(await getCardsAsync());
       setIsLoading(false);
     };
     initCards();
+    document.addEventListener("REFRESH", () => initCards());
   }, []);
 
   return (
