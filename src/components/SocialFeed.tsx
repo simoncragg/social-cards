@@ -30,10 +30,10 @@ const SocialFeed: React.FC = () => {
       {cards.map((card) => (
         <SocialCard
           key={card.id}
-          username={card.username}
-          title={card.title}
-          message={card.message}
+          id={card.id}
           userId={card.userId}
+          username={card.username}
+          message={card.message}
           imagePath={card.imagePath}
           timestamp={card.timestamp}
         />

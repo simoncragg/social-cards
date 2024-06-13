@@ -1,20 +1,20 @@
 import React from "react";
-import { FiHeart } from "react-icons/fi";
 import { FaRegComment } from "react-icons/fa";
+import { FiHeart } from "react-icons/fi";
 
 interface SocialCardProps {
-  id: string;
+  id: number;
   userId: number;
   username: string;
   message: string;
-  imagePath: string;
+  imagePath?: string;
   timestamp: number;
 }
 
 const SocialCard: React.FC<SocialCardProps> = ({
+  userId,
   username,
   message,
-  userId,
   imagePath,
   timestamp,
 }) => {
