@@ -1,30 +1,49 @@
 import React from "react";
+import { FiHeart } from "react-icons/fi";
+import { FaRegComment } from "react-icons/fa";
 
 interface SocialCardProps {
-  username: string;
-  title?: string;
-  message: string;
+  id: string;
   userId: number;
+  username: string;
+  message: string;
+  imagePath: string;
+  timestamp: number;
 }
 
 const SocialCard: React.FC<SocialCardProps> = ({
   username,
-  title,
   message,
   userId,
+  imagePath,
+  timestamp,
 }) => {
   return (
-    <div className="flex flex-col border border-white p-4 rounded-xl mb-8 items-start bg-white/10">
-      <div className="flex items-center mb-2">
+    <div className="flex flex-col w-full bg-white/50 text-sky-800 pt-2 px-2 pb-1 b-8 items-start mb-2 rounded-md gap-2 md:w-1/2">
+      <div className="flex items-center">
         <img
           className="rounded-full w-6 h-6"
           data-testid={`profile-pic-${userId}`}
           src={`https://xsgames.co/randomusers/assets/avatars/pixel/${userId}.jpg`}
         />
-        <span className="text-xl font-bold ml-4">{username}</span>
+        <span className="text-lg font-semibold ml-2">{username}</span>
       </div>
-      {title && <p className="font-semibold">{title}</p>}
       <p>{message}</p>
+      <div className="flex w-full justify-center items-center">
+        { imagePath && <img src={imagePath} alt={"?"} /> }
+      </div>
+
+      <div className="flex w-full justify-between items-center gap-4">
+        <p className="text-xs">{`Echoed: ${new Date(timestamp).toLocaleDateString()} ${new Date(timestamp).toLocaleTimeString()}`}</p>
+        <div className="flex items-center gap-2 ml-auto">
+          <FiHeart className="w-4 h-4 ml-auto" />
+          <span>0</span>
+        </div> 
+        <div className="flex items-center gap-2">
+          <FaRegComment className="w-4 h-4"></FaRegComment>
+          <span>0</span>
+        </div> 
+      </div>
     </div>
   );
 };

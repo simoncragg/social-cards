@@ -6,10 +6,10 @@ const Layout = () => {
     <div className="min-h-screen bg-tropical-ocean text-white">
 
       <header>
-        < Navbar />
+        <Navbar />
       </header>
 
-      <div className="p-4">
+      <div className="flex flex-col p-4 w-full justify-center items-center">
         <Outlet />
       </div>
     </div>
@@ -17,3 +17,4 @@ const Layout = () => {
 };
 
 export default Layout;
+

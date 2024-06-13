@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import SocialCard from "./SocialCard";
-import type { Card } from "../services/SocialCardService";
-import { getCardsAsync } from "../services/SocialCardService";
-import { useNavigate } from "react-router-dom";
-import FloatingButton from "./FloatingButton";
 import { HiPlus } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
+
+import type { Card } from "../services/Data";
+import FloatingButton from "./FloatingButton";
+import SocialCard from "./SocialCard";
+import { getCardsAsync } from "../services/SocialCardService";
+import { events } from "../constants";
 
 const SocialFeed: React.FC = () => {
   const navigate = useNavigate();
@@ -18,19 +20,22 @@ const SocialFeed: React.FC = () => {
       setIsLoading(false);
     };
     initCards();
-    document.addEventListener("REFRESH", () => initCards());
+    document.addEventListener(events.REFRESH_PAGE, () => initCards());
   }, []);
 
   return (
     <>
-      { isLoading && <p className="z-90 text-3xl">Loading...</p> }
+      { isLoading && <p className="text-xl mb-4">Loading...</p> }
 
       {cards.map((card) => (
         <SocialCard
+          key={card.id}
           username={card.username}
           title={card.title}
           message={card.message}
           userId={card.userId}
+          imagePath={card.imagePath}
+          timestamp={card.timestamp}
         />
       ))}
 
