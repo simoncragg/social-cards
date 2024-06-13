@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { HiPlus } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 
-import type { Card } from "../services/Data";
+import type { CardType } from "../services/Data";
+import Card from "./Card";
 import FloatingButton from "./FloatingButton";
-import SocialCard from "./SocialCard";
 import { getCardsAsync } from "../services/SocialCardService";
 import { events } from "../constants";
 
 const SocialFeed: React.FC = () => {
   const navigate = useNavigate();
-  const [cards, setCards] = useState<Card[]>([]);
+  const [cards, setCards] = useState<CardType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const SocialFeed: React.FC = () => {
       { isLoading && <p className="text-xl mb-4">Loading...</p> }
 
       {cards.map((card) => (
-        <SocialCard
+        <Card
           key={card.id}
           id={card.id}
           userId={card.userId}

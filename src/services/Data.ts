@@ -1,4 +1,4 @@
-export interface Card {
+export type CardType = {
 	id: number,
 	userId: number;
 	username: string;
@@ -7,7 +7,7 @@ export interface Card {
 	timestamp: number;
 }
 
-export const cards: Card[] = [
+export const cards: CardType[] = [
 	{
 		id: 1,
 		userId: 22,

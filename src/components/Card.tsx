@@ -2,7 +2,7 @@ import React from "react";
 import { FaRegComment } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 
-interface SocialCardProps {
+interface CardProps {
   id: number;
   userId: number;
   username: string;
@@ -11,7 +11,7 @@ interface SocialCardProps {
   timestamp: number;
 }
 
-const SocialCard: React.FC<SocialCardProps> = ({
+const Card: React.FC<CardProps> = ({
   userId,
   username,
   message,
@@ -30,7 +30,6 @@ const SocialCard: React.FC<SocialCardProps> = ({
       </div>
       <p>{message}</p>
       <div className="flex w-full justify-center items-center">
-        { imagePath && <img src={imagePath} alt={"?"} /> }
       </div>
 
       <div className="flex w-full justify-between items-center gap-4">
@@ -48,4 +47,4 @@ const SocialCard: React.FC<SocialCardProps> = ({
   );
 };
 
-export default SocialCard;
+export default Card;
