@@ -8,7 +8,7 @@ import FloatingButton from "./FloatingButton";
 import { getCardsAsync } from "../services/SocialCardService";
 import { events } from "../constants";
 
-const SocialFeed: React.FC = () => {
+const Feed: React.FC = () => {
   const navigate = useNavigate();
   const [cards, setCards] = useState<CardType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -49,4 +49,4 @@ const SocialFeed: React.FC = () => {
   );
 };
 
-export default SocialFeed;
+export default Feed;

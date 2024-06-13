@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Feed from "./components/Feed";
 import Layout from "./components/Layout";
 import NewPost  from "./components/NewPost";
-import SocialFeed from "./components/SocialFeed";
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/" element={<SocialFeed />} />
+          <Route path="/" element={<Feed />} />
           <Route path="/new-post" element={<NewPost/>} />
         </Route>
       </Routes>
