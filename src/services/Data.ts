@@ -1,4 +1,5 @@
 export interface Card {
+	id: number,
 	userId: number;
 	username: string;
 	message: string;
@@ -8,7 +9,7 @@ export interface Card {
 
 export const cards: Card[] = [
 	{
-		id: "1",
+		id: 1,
 		userId: 22,
 		username: "simonc",
 		message: "cute rabbit 😍",
@@ -16,17 +17,18 @@ export const cards: Card[] = [
 		timestamp: 1718285836000
 	},
 	{
-		id: "2",
-		username: "bradleyw",
-		message: "woah something different!",
+		id: 2,
 		userId: 23,
+		username: "bradw",
+		message: "Some interesting scenes in this!",
+		imagePath: "/images/obi-wan.jpeg",
 		timestamp: 1718285916000
 	},
 	{
-		id: "3",
+		id: 3,
+		userId: 24,
 		username: "novice@frontend",
 		message: "10/10 would recommend pairing with Simon.",
-		userId: 24,
 		timestamp: 1718285916000
 	}
 ];
