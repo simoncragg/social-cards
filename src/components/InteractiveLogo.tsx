@@ -1,9 +1,9 @@
 import React from "react";
-import { motion, useDragControls, useMotionValue, useTransform, animate } from "framer-motion";
+import { motion, useDragControls, useMotionValue, useTransform, animate, PanInfo } from "framer-motion";
 import { events } from "../constants.ts";
 
 interface InteractiveLogoProps {
-  onDragStatusChange: (bool: isDragging) => void;
+  onDragStatusChange: (isDragging: boolean) => void;
 }
 
 const InteractiveLogo: React.FC<InteractiveLogoProps> = ({ onDragStatusChange }) => {
@@ -19,7 +19,7 @@ const InteractiveLogo: React.FC<InteractiveLogoProps> = ({ onDragStatusChange })
     onDragStatusChange(true);
   };
 
-  const handleDragEnd = (event, info) => {
+  const handleDragEnd = ( _: TouchEvent | MouseEvent | PointerEvent, info: PanInfo) => {
     if (info.point.y > 100) {
       document.dispatchEvent(new CustomEvent(events.REFRESH_PAGE));
     }
@@ -31,7 +31,6 @@ const InteractiveLogo: React.FC<InteractiveLogoProps> = ({ onDragStatusChange })
   return (
     <motion.div
       drag="y"
-      dragOriginY="center"
       dragConstraints={{ top: 0, bottom: 100 }}
       dragControls={controls}
       dragElastic={0.2}
