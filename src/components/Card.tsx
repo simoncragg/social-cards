@@ -12,6 +12,7 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({
+  id,
   userId,
   username,
   message,
@@ -30,6 +31,7 @@ const Card: React.FC<CardProps> = ({
       </div>
       <p>{message}</p>
       <div className="flex w-full justify-center items-center">
+        { imagePath && <img src={imagePath} alt={"?"} data-testid={`posted-image-${id}`} /> }
       </div>
 
       <div className="flex w-full justify-between items-center gap-4">
