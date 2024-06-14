@@ -1,6 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { motion, useDragControls, useMotionValue, useTransform, animate, PanInfo } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { events } from "../constants.ts";
 
 interface InteractiveLogoProps {
@@ -8,9 +8,8 @@ interface InteractiveLogoProps {
 }
 
 const InteractiveLogo: React.FC<InteractiveLogoProps> = ({ onDragStatusChange }) => {
-  
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
   const controls = useDragControls();
   const y = useMotionValue(0);
   const rotate = useTransform(y, [0, 200], [0, 360]);
@@ -41,7 +40,7 @@ const InteractiveLogo: React.FC<InteractiveLogoProps> = ({ onDragStatusChange })
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
     >
-      <button type="button" onClick={() => navigate("/")}>
+      <button type="button" className="outline-none" onClick={() => navigate("/")}>
         <img
           src="/logo-min.JPEG"
           className="w-16 h-16 rounded-full bg-white border-solid border-2 border-sky-400 pointer-events-none"
