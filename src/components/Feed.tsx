@@ -41,7 +41,7 @@ const Feed: React.FC = () => {
 
       <FloatingButton
         ariaLabel="compose-new-echo"
-        onClick={() => navigate("/new-post")}
+        onClick={() => navigate("/new-echo")}
       >
         <HiPlus className="w-6 h-6" />
       </FloatingButton>
