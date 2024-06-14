@@ -1,30 +1,37 @@
-# React + TypeScript + Vite
+# Social Cards
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A kata for building a social card UI component in React. This implementation goes a little deeper and builds out the basic building blocks of a social media web app.
 
-Currently, two official plugins are available:
+![image](./docs/component-diagram-min.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+*Before getting started, please ensure that you have Node.js version 20 or higher installed on your system.*
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Install the project dependencies by running:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+$ npm i
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Usage
+
+To run the app locally on your development server, execute the following command:
+
+```bash
+$ npm run dev
+```
+
+This will start the development server and open the app in your default web browser. Alternatively, you can navigate to http://localhost:5173 in your browser to access the app.
+
+## Testing
+
+To run the test suite, use the following command:
+
+```bash
+$ npm t
+```
+
+## License
+
+This project is licensed under the MIT License.
