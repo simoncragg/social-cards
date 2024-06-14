@@ -13,9 +13,9 @@ const InteractiveLogo: React.FC<InteractiveLogoProps> = ({ onDragStatusChange })
   const controls = useDragControls();
   const y = useMotionValue(0);
   const rotate = useTransform(y, [0, 200], [0, 360]);
-	const opacity = useTransform(y, [0, 200], [1, 0.1]);
+  const opacity = useTransform(y, [0, 200], [1, 0.1]);
   const scale = useTransform(y, [0, 200], [1, 0.9]);
-	const blur = useTransform(y, [0, 200], ["blur(0px)", "blur(5px)"]);
+  const blur = useTransform(y, [0, 200], ["blur(0px)", "blur(5px)"]);
   
   const handleDragStart = () => {
     onDragStatusChange(true);
@@ -26,7 +26,7 @@ const InteractiveLogo: React.FC<InteractiveLogoProps> = ({ onDragStatusChange })
       document.dispatchEvent(new CustomEvent(events.REFRESH_PAGE));
     }
 
-		animate(y, 0, { type: "spring", stiffness: 300 });
+    animate(y, 0, { type: "spring", stiffness: 300 });
     onDragStatusChange(false);
   };
 
