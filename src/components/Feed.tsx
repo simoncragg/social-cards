@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import type { CardType } from "../services/Data";
 import Card from "./Card";
 import FloatingButton from "./FloatingButton";
-import { getCardsAsync } from "../services/SocialCardService";
+import { getCardsAsync } from "../services/CardService";
 import { events } from "../constants";
 
 const Feed: React.FC = () => {
