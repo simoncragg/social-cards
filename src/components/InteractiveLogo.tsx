@@ -40,7 +40,7 @@ const InteractiveLogo: React.FC<InteractiveLogoProps> = ({ onDragStatusChange })
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
     >
-      <button type="button" className="outline-none" onClick={() => navigate("/")}>
+      <button type="button" className="outline-none" onClick={() => navigate("/echoes")}>
         <img
           src="/logo-min.JPEG"
           className="w-16 h-16 rounded-full bg-white border-solid border-2 border-sky-400 pointer-events-none"
