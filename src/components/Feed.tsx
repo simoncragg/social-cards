@@ -2,41 +2,35 @@ import React, { useEffect, useState } from "react";
 import { HiPlus } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 
-import type { CardType } from "../services/Data";
+import type { PersonalisedPost } from "../data/Posts";
 import Card from "./Card";
 import FloatingButton from "./FloatingButton";
-import { getCardsAsync } from "../services/CardService";
+import useAuth from "../hooks/useAuth";
+import { getPersonalisedPostsAsync } from "../services/FeedService";
 import { events } from "../constants";
 
 const Feed: React.FC = () => {
+  const { userId } = useAuth();
   const navigate = useNavigate();
-  const [cards, setCards] = useState<CardType[]>([]);
+  const [posts, setPosts] = useState<PersonalisedPost[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const initCards = async () => {
       setIsLoading(true);
-      setCards(await getCardsAsync());
+      setPosts(await getPersonalisedPostsAsync(userId));
       setIsLoading(false);
     };
     initCards();
     document.addEventListener(events.REFRESH_PAGE, () => initCards());
-  }, []);
+  }, [userId]);
 
   return (
     <>
       { isLoading && <p className="text-xl mb-4">Loading...</p> }
 
-      {cards.map((card) => (
-        <Card
-          key={card.id}
-          id={card.id}
-          userId={card.userId}
-          username={card.username}
-          message={card.message}
-          imagePath={card.imagePath}
-          timestamp={card.timestamp}
-        />
+      {posts.map(post => (
+        <Card key={post.id} post={post} />
       ))}
 
       <FloatingButton

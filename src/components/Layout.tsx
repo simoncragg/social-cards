@@ -12,9 +12,9 @@ const Layout = () => {
       <div className="flex flex-col p-4 w-full justify-center items-center">
         <Outlet />
       </div>
+      
     </div>
   );
 };
 
 export default Layout;
-
