@@ -13,19 +13,21 @@ export interface PersonalisedPost extends Post {
   isLiked: boolean;
 }
 
+const postsKey = "echo-chamber-posts";
+
 export function getPosts(): Post[] {
-  const postsJson = localStorage.getItem("posts");
+  const postsJson = localStorage.getItem(postsKey);
   if (postsJson) {
     return JSON.parse(postsJson);
   }
-  localStorage.setItem("posts", JSON.stringify(seedPosts));
+  localStorage.setItem(postsKey, JSON.stringify(seedPosts));
   return seedPosts;
 }
 
 export function addPosts(post: Post) {
   const posts = getPosts();
   posts.push(post);
-  localStorage.setItem("posts", JSON.stringify(posts));
+  localStorage.setItem(postsKey, JSON.stringify(posts));
 }
 
 const seedPosts: Post[] = [
