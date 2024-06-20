@@ -1,8 +1,10 @@
 import { FormEvent, useRef } from "react";
 import useAuth from "../hooks/useAuth";
 import { addPostAsync } from "../services/FeedService";
+import { useNavigate } from "react-router-dom";
 
 const NewPost = () => {
+  const navigate = useNavigate();
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const { userId } = useAuth();
 
@@ -12,6 +14,7 @@ const NewPost = () => {
       userId,
       message: messageRef.current?.value ?? "",
     });
+    navigate("/echoes");
   };
 
   return (
