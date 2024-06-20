@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { FormEvent, useRef } from "react";
 import useAuth from "../hooks/useAuth";
 import { addPostAsync } from "../services/FeedService";
 
@@ -6,7 +6,8 @@ const NewPost = () => {
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const { userId } = useAuth();
 
-  const submitPost = async () => {
+  const submitPost = async (event: FormEvent<HTMLFormElement> ) => {
+    event?.preventDefault();
     await addPostAsync({
       userId,
       message: messageRef.current?.value ?? "",

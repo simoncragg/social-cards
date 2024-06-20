@@ -1,7 +1,7 @@
 import type { User } from "./User";
 
 export interface Post {
-  id: number,
+  id: number;
   author: User;
   message: string;
   imagePath?: string;
@@ -13,7 +13,22 @@ export interface PersonalisedPost extends Post {
   isLiked: boolean;
 }
 
-export const posts: Post[] = [
+export function getPosts(): Post[] {
+  const postsJson = localStorage.getItem("posts");
+  if (postsJson) {
+    return JSON.parse(postsJson);
+  }
+  localStorage.setItem("posts", JSON.stringify(seedPosts));
+  return seedPosts;
+}
+
+export function addPosts(post: Post) {
+  const posts = getPosts();
+  posts.push(post);
+  localStorage.setItem("posts", JSON.stringify(posts));
+}
+
+const seedPosts: Post[] = [
   {
     id: 1,
     author: {
@@ -23,7 +38,7 @@ export const posts: Post[] = [
     message: "cute rabbit 😍",
     imagePath: "/images/rabbit.jpg",
     timestamp: 1718285836000,
-    likes: 3211
+    likes: 3211,
   },
   {
     id: 2,
@@ -34,7 +49,7 @@ export const posts: Post[] = [
     message: "Some interesting scenes in this!",
     imagePath: "/images/obi-wan.jpeg",
     timestamp: 1718285916000,
-    likes: 14102
+    likes: 14102,
   },
   {
     id: 3,
@@ -44,6 +59,6 @@ export const posts: Post[] = [
     },
     message: "10/10 would recommend pairing with Simon.",
     timestamp: 1718285916000,
-    likes: 100
-  }
+    likes: 100,
+  },
 ];
