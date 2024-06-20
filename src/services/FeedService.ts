@@ -1,7 +1,7 @@
 import type { PersonalisedPost } from "../data/Posts.ts";
 import sleep from "./sleep";
 import { addLikedPostAsync, removeLikedPostAsync, getUserAsync } from "./UserService.ts";
-import { addPosts, getPosts } from "../data/Posts.ts";
+import { addPosts, getPosts, updatePost } from "../data/Posts.ts";
 
 async function getPersonalisedPostsAsync(userId: number): Promise<PersonalisedPost[]> {
 
@@ -38,8 +38,8 @@ async function addLikeAsync(postId: number, userId: number): Promise<void> {
   const post = posts.find(post => post.id === postId);
   if (post) {
     post.likes++;
+    updatePost(post);
   }
-
   addLikedPostAsync({ userId, postId });
 }
 
@@ -49,6 +49,7 @@ async function removeLikeAsync(postId: number, userId: number): Promise<void> {
   const post = posts.find(post => post.id === postId);
   if (post) {
     post.likes--;
+    updatePost(post);
   }
 
   removeLikedPostAsync({ userId, postId });

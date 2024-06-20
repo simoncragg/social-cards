@@ -30,6 +30,13 @@ export function addPosts(post: Post) {
   localStorage.setItem(postsKey, JSON.stringify(posts));
 }
 
+export function updatePost(post: Post)
+{
+  const otherPosts = getPosts().filter(x => x.id !== post.id);
+  const posts = [...otherPosts, post].sort((a,b) => a.id - b.id);
+  localStorage.setItem(postsKey, JSON.stringify(posts));
+}
+
 const seedPosts: Post[] = [
   {
     id: 1,
