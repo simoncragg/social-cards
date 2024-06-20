@@ -18,9 +18,9 @@ async function getPersonalisedPostsAsync(userId: number): Promise<PersonalisedPo
 async function addPostAsync(req: { message: string; userId: number; }) {
   await sleep(100);
   const user = await getUserAsync(req.userId);
-  //TODO: Do we need to getPosts to find the latest Id?
+  const mostRecentPostId = getPosts().sort((a,b) => b.id - a.id)[0].id;
   const post = {
-    id: 4, // will need to be auto generated.
+    id: mostRecentPostId+1,
     author: {
       id: user.id,
       username: user.username,
