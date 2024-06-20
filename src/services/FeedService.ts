@@ -23,7 +23,7 @@ async function addPostAsync(req: { message: string; userId: number; }) {
       username: user.username,
     },
     message: req.message,
-    timestamp: new Date().getUTCDate(),
+    timestamp: new Date().getTime(),
     likes: 0
   };
   posts.push(post);
