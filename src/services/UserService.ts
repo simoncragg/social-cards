@@ -3,7 +3,7 @@ import { user } from "../data/User.ts";
 import sleep from "./sleep";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-async function getUserAsync(userId: number): Promise<User> {
+async function getUserAsync(_: number): Promise<User> {
   await sleep(1000);
   return user;
 }
