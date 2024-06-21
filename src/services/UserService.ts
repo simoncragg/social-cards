@@ -19,7 +19,7 @@ async function addLikedPostAsync(req: { userId: number, postId: number }) {
 async function removeLikedPostAsync(req: { userId: number; postId: number }) {
   const { userId, postId } = req;
   const user = await getUserAsync(userId);
-  user.likedPostIds = user.likedPostIds.filter(id => id !== postId);
+  user.likedPostIds = user.likedPostIds?.filter(id => id !== postId) ?? [];
 }
 
 export { getUserAsync, addLikedPostAsync, removeLikedPostAsync };
