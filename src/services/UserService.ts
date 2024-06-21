@@ -11,7 +11,7 @@ async function getUserAsync(_: number): Promise<User> {
 async function addLikedPostAsync(req: { userId: number, postId: number }) {
   const { userId, postId } = req;
   const user = await getUserAsync(userId);
-  const likedPosts = [...user.likedPostIds, postId];
+  const likedPosts = [...user.likedPostIds ?? [], postId];
   const distinctPosts = [...new Set(likedPosts)];
   user.likedPostIds = distinctPosts;
 }
