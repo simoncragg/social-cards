@@ -1,7 +1,7 @@
 import React from "react";
 import { FaRegComment } from "react-icons/fa";
 
-import type { PersonalizedPost } from "../data";
+import type { PersonalizedPost } from "../data/Posts";
 import Likes from "./Likes";
 
 interface CardProps {
