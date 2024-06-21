@@ -1,11 +1,11 @@
 import React from "react";
 import { FaRegComment } from "react-icons/fa";
 
-import type { PersonalizedPost } from "../data/Posts";
+import type { PersonalisedPost } from "../data/Posts";
 import Likes from "./Likes";
 
 interface CardProps {
-  post: PersonalizedPost;
+  post: PersonalisedPost;
 }
 
 const Card: React.FC<CardProps> = ({ 
